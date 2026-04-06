@@ -2,6 +2,7 @@ import type { Character } from '../../types/character';
 
 type TableProps = {
   characters: Character[];
+  removeCharacter: (index: number) => void;
 };
 
 function TableHeader() {
@@ -10,29 +11,35 @@ function TableHeader() {
       <tr>
         <th>Name</th>
         <th>Job</th>
+        <th>Actions</th>
       </tr>
     </thead>
   );
 }
 
-function TableBody({ characters }: TableProps) {
+function TableBody({ characters, removeCharacter }: TableProps) {
   return (
     <tbody>
-      {characters.map((character) => (
-        <tr key={character.name}>
+      {characters.map((character, index) => (
+        <tr key={index}>
           <td>{character.name}</td>
           <td>{character.job}</td>
+          <td>
+            <button type="button" onClick={() => removeCharacter(index)}>
+              Delete
+            </button>
+          </td>
         </tr>
       ))}
     </tbody>
   );
 }
 
-export function Table({ characters }: TableProps) {
+export function Table({ characters, removeCharacter }: TableProps) {
   return (
     <table>
       <TableHeader />
-      <TableBody characters={characters} />
+      <TableBody characters={characters} removeCharacter={removeCharacter} />
     </table>
   );
 }
