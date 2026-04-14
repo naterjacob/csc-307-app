@@ -1,0 +1,14 @@
+{
+  "name": "express-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "backend.js",
+  "scripts": {
+    "dev": "npx nodemon backend.js",
+    "start": "node backend.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
