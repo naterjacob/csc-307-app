@@ -9,6 +9,7 @@ function TableHeader() {
   return (
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Job</th>
         <th>Actions</th>
@@ -22,6 +23,7 @@ function TableBody({ characters, removeCharacter }: TableProps) {
     <tbody>
       {characters.map((character, index) => (
         <tr key={index}>
+          <td>{character.id}</td>
           <td>{character.name}</td>
           <td>{character.job}</td>
           <td>
